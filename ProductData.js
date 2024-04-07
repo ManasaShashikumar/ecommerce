@@ -3,14 +3,14 @@ const ProductData = {
 
     users: [
         {
-            name: 'Avinash',
-            email: 'avinash123@gmail.com',
+            name: 'admin',
+            email: 'admin123@gmail.com',
             password: bcrypt.hashSync('1234567'),
             isAdmin: true
         },
         {
-            name: 'Avi',
-            email: 'avi123@gmail.com',
+            name: 'admin2',
+            email: 'admin3123@gmail.com',
             password: bcrypt.hashSync('1234567'),
             isAdmin: false
 
@@ -21,11 +21,9 @@ const ProductData = {
 
 
     products: [
-        // All Women Product List
-        // slug code for saree : 2digit of Brand +category + 11Serial Number
-        // slug code for other : 2digit of Brand +Dress + 22Serial Number
+       
         {
-            //     _id : '1',
+            
             name: "MenHoddies",
             slug: "Hoddies",
             category: 'Hoddies',

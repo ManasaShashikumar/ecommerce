@@ -23,8 +23,15 @@ orderRouter.post('/', isAuth, expressAsyncHandler(async (req, res) => {
         user: req.user._id,
 
     });
-    const order = await neworder.save();
-    res.status(201).send({ message: 'New Order Created', order });
+    // const order = await neworder.save();
+    // res.status(201).send({ message: 'New Order Created', order });
+try {
+  const order = await neworder.save();
+  res.status(201).send({ message: "New Order Created", order });
+} catch (error) {
+  console.error("Error saving order:", error);
+  res.status(500).send({ message: "Error creating order" });
+}
 
 
 }))

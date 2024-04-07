@@ -8,8 +8,7 @@ const Userinfo = require('../models/UserModule');
 const mainRouter = express.Router();
 //http://localhost:4000/api/main/
 mainRouter.get('/', async (req, res) => {
-  // Remove all the previous record in the product model
-  //{} means retur all the parameter inside the product model
+ 
   await Product.deleteMany();
   const NewProducts = await Product.insertMany(ProductData.products);
 

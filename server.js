@@ -31,11 +31,6 @@ app.use(cors());
 
 const port = process.env.PORT || 4000;
 
-
-app.get('/api/keys/paypal', (req, res) => {
-    res.send(process.env.PAYPAL_CLIENT_ID || 'sandbox');
-});
-
 app.use('/api/admin', adminRouter)
 
 
@@ -43,7 +38,7 @@ app.use('/api/admin', adminRouter)
 app.use('/api/main',mainRouter);
 
 
-//http://localhost:4000/api/products
+
 app.use('/api/products',productRouter);
 
 app.use('/api/users',userRoutes);
@@ -53,23 +48,9 @@ app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
 });
-
-// const __dirname=path.resolve();
-// app.use(express.static(path.join(__dirname,'/frontend/build')));
-// app.get('*',(req,res)=>{
-//     res.sendFile(path.join(__dirname,'/frontend/build/index.html'));
-
-// });
-
-
-// define expressAynchandler logic
 app.use((err,req,res,next)=>{
     res.status(500).send({message:err.message});
 });
-
-
-
-
 
 
 app.listen(port, ()=>{
